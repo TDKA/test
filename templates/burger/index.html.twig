@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BurgerController!{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    <h1>Welcome to the burgers! ✅</h1>
+
+    <div class="container">
+
+     <a href="{{ path("createBurger") }}" class="btn btn-primary my-4"> Add New Burger </a>
+
+     <a href="{{ path("newCategory") }}" class="btn btn-success my-4"> Add New Group </a>
+        <div class="row">
+
+    {% for burger in burgers %}
+            <div class="col-md-4">
+                <div class="card" style="width: 16rem;">
+                {# Image #}
+                    <img src="{{ asset('uploads/images/burgers/') }}{{ burger.images }}" class="card-img-top" alt="...">
+
+                    <div class="card-body">
+                        <span class="badge rounded-pill bg-info text-white mb-3">Category: {{burger.category.name}}</span>
+                        <h5 class="card-title">Name: {{burger.name}}</h5>
+                        <p class="card-text">Description: {{burger.description}}</p>
+                        <p class="card-text">Sauce: {{burger.sauce}}</p>
+                        <p class="card-text fw-bold">Price: {{burger.price}} €</p>
+
+                        {# Edit CAR #}
+                        <a href="{{ path('showBurger', {id: burger.id}) }}" class="btn btn-primary">Check more</a>
+
+                          {# Edit CAR #}
+                        <a href="{{ path("editBurger", {id: burger.id}) }}" class="btn btn-success "> Edit this burger </a>
+
+                          {# Delete CAR #}
+                        <a href="{{ path("deleteBurger", {id: burger.id}) }}" class="btn btn-danger "> Delete burger </a>
+                    </div>
+                </div>
+            </div>
+
+    {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

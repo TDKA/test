@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formCategory 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+
+<a href="{{ path('burger') }}" class="btn btn-primary mt-3">Return to all burgers</a>
+<h1 class="my-4"> Create new group of burgers </h1>
+
+{{ form_start(formCategory) }}
+				
+                {{ form_row(formCategory.name) }}
+                {{ form_row(formCategory.description) }}
+				
+				<button type="submit" class="btn btn-primary"> Save </button>
+{{ form_end(formCategory) }} 
+
+
+{% endblock %}

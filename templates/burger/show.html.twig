@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<a href="{{ path('burger') }}" class="btn btn-primary">Return to all burgers</a>
+
+<h1 class="text-center"> The fabulous {{burger.name}} </h1>
+
+<div class="card mb-3 mx-auto" style="max-width: 540px;" >
+  <img src="{{ asset('uploads/images/burgers/') }}{{ burger.images }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <span class="badge rounded-pill bg-info text-white mb-3">Category: {{burger.category.name}}</span>
+    <h5 class="card-title">{{burger.name}}</h5>
+    <p class="card-text">{{burger.description}}</p>
+    <p class="card-text">{{burger.sauce}}</p>
+    <p class="card-text">{{burger.price}}</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>
+
+
+{% endblock %}

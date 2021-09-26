@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+
+{% if modeCreate %}
+    <h1> Create new burger NOW </h1>
+{% else %}
+        <h1> Edit this burger NOW </h1>
+{% endif %}
+
+{{ form_start(form) }}
+				
+				{{form_row(form.name)}}
+				{{form_row(form.description)}}
+				{{form_row(form.sauce)}}
+				{{form_row(form.price)}}
+				{{form_row(form.category)}}
+				{{form_row(form.images)}}
+				<button type="submit" class="btn btn-primary"> 
+
+                {% if modeCreate %}
+                    Create burger
+                {% else %}
+                    Save the modifications
+                {% endif %}
+                </button>
+{{ form_end(form) }} 
+
+
+{% endblock %}
